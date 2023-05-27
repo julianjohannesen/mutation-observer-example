@@ -15,7 +15,7 @@ addNodes.addEventListener("click", () => {
     // Create a new paragraph element
     const newPara = document.createElement("p");
     // Add the current time to the new paragraph
-    newPara.textContent = `Current time: ${new Date().toLocaleTimeString()}`;
+    newPara.textContent = `The time is ${new Date().toLocaleTimeString()}`;
     // Append the new paragraph element to its container
     display.appendChild(newPara);
   }
@@ -42,11 +42,11 @@ function logNodeCount(records) {
       // Set the new total number of added nodes to the previous total plus any newly added nodes minus any removed nodes
       totalAddedNodes = totalAddedNodes + record.addedNodes.length - record.removedNodes.length;
       // Log the number of nodes added
-      counter.textContent = `Total added nodes: ${totalAddedNodes}.`;
+      counter.textContent = `Node count: ${totalAddedNodes}.`;
 
       //Log record.target
       //TODO How do I target just the most recently mutated node?
-      display.lastChild.textContent += `\r\nTarget of mutation: ${record.target.id}`
+      display.lastChild.textContent += ` and we're observing the "${record.target.id}" element.`
     }
   }
 }
