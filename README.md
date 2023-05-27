@@ -12,6 +12,10 @@ API to allow for response to changes in the DOM
 
 [Mutation Observer](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver)
 
+### MutationObserver: Observe Method
+
+[Observe Method](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver/observe)
+
 ### MutationRecord
 
 https://developer.mozilla.org/en-US/docs/Web/API/MutationRecord
