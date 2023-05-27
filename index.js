@@ -39,5 +39,9 @@ function logNewNodes(records) {
     }
 }
 
+const mutationObserverInitObject = {
+    childList: true,
+}
+
 const observer = new MutationObserver(logNewNodes);
-observer.observe(target, { childList: true });
+observer.observe(target, mutationObserverInitObject);
