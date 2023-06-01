@@ -31,7 +31,7 @@ removeNodes.addEventListener("click", () => {
   }
 });
 
-// 'Reset' button listener and handler and handler
+// 'Reset' button listener and handler
 reset.addEventListener("click", () => self.location.reload());
 
 // Log any newly added nodes

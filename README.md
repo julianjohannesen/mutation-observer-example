@@ -18,7 +18,7 @@ API to allow for response to changes in the DOM
 
 ### MutationRecord
 
-https://developer.mozilla.org/en-US/docs/Web/API/MutationRecord
+[MutationRecord](https://developer.mozilla.org/en-US/docs/Web/API/MutationRecord)
 
 ### MutationRecord: **addedNodes** property and **removedNodes** property
 
