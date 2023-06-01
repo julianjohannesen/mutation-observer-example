@@ -1,4 +1,4 @@
-// The buttons
+// The Start/Stop, Add Node, Remove Node, and Reset buttons
 const startStop = document.querySelector("#startStop");
 const addNodes = document.querySelector("#add-nodes");
 const removeNodes = document.querySelector("#remove-nodes");
@@ -7,7 +7,7 @@ const reset = document.querySelector("#reset");
 const counter = document.querySelector("#counter");
 // Node display area
 const display = document.querySelector("#display");
-let totalAddedNodes = 0;
+let numberOfDisplayedNodes = 0;
 
 // 'Add Node' button listener and handler
 addNodes.addEventListener("click", () => {
@@ -36,17 +36,22 @@ reset.addEventListener("click", () => self.location.reload());
 
 // Log any newly added nodes
 function logNodeCount(records) {
+  console.log("The mutation records object: ", records)
   for (const record of records) {
+    console.log("The single record for this loop through: ", record)
     // Check if the childlist of the target node has been mutated
     if (record.type === "childList") {
-      // Set the new total number of added nodes to the previous total plus any newly added nodes minus any removed nodes
-      totalAddedNodes = totalAddedNodes + record.addedNodes.length - record.removedNodes.length;
-      // Log the number of nodes added
-      counter.textContent = `Node count: ${totalAddedNodes}.`;
 
-      //Log record.target
-      //TODO How do I target just the most recently mutated node?
-      display.lastChild.textContent += ` and we're observing the "${record.target.id}" element.`
+      // Set the new total number of added nodes to the previous total plus any newly added nodes minus any removed nodes
+      numberOfDisplayedNodes = numberOfDisplayedNodes + record.addedNodes.length - record.removedNodes.length;
+      // Log the number of nodes currently displayed
+      counter.textContent = `Node count: ${numberOfDisplayedNodes}.`;
+
+    
+      // If adding a node, identify the observed node to which the new node was added
+      if(record.removedNodes.length === 0){
+        display.lastChild.textContent += ` and we're observing the "${record.target.id}" element.`
+      }
     }
   }
 }
